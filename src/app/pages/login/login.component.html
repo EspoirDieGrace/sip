@@ -1,0 +1,36 @@
+<div style="display: flex;">
+  <section class="card-img">
+    <img class="img-responsive" src="../../../assets/img/undraw_Login_re_4vu2.svg" alt="">
+   
+  </section>
+  <section class="card-form">
+    <h1 class="title">Connexion</h1>
+  
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your username!">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="text" nz-input formControlName="userName" placeholder="Username" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your Password!">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="password" placeholder="Password" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <div nz-row class="login-form-margin">
+          <div nz-col [nzSpan]="12">
+          </div>
+          <div nz-col [nzSpan]="12">
+            <a class="login-form-forgot">Mot de passe oublie ?</a>
+          </div>
+        </div>
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Se connecter</button>
+        Ou <button nz-button nzType="primary"  nzShape="circle"><i nz-icon nzType="google" nzTheme="outline"></i></button>
+  
+      </form>
+  </section>
+</div>

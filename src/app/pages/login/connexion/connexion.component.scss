@@ -1,0 +1,21 @@
+
+.card-form {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;  
+    align-items: center;
+}
+
+.title-zone {
+    display: grid;
+    place-items: center;
+}
+
+.img-responsive {
+    width: 250px;
+}
+
+
+.login-form {
+    width: 350px;
+  }

@@ -1,0 +1,73 @@
+<section class="card-form">
+  <nz-space nzDirection="vertical" [nzSize]="20">
+    <nz-space-item>
+      <div style="width: 100%;display: grid;place-items: center;">
+        <img src="assets/img/logo_dark.jpeg" class="img-responsive" alt="">
+      </div>
+    </nz-space-item>
+    <nz-space-item>
+      <div class="title-zone">
+        <h2>Bienvenue sur votre plateforme</h2>
+        <h5 class="title">Veuillez vous connecter pour acceder à vos données</h5>
+      </div>
+    </nz-space-item>
+    <nz-space-item>
+      <form nz-form [formGroup]="loginForm" class="login-form">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your username!">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="text" nz-input formControlName="userName" placeholder="Username" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Veuillez saisir votre mot de passe!">
+            <nz-input-group [nzPrefixIcon]="isVisible ? 'unlock' : 'lock'">
+              <input [type]="isVisible ? 'text' : 'password'" nz-input formControlName="password"
+                placeholder="Password" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <div nz-row nzJustify="center" class="login-form-margin">
+          <button nz-button class="login-form-button login-form-margin" [disabled]="loginForm.invalid"
+            [nzLoading]="isLoading" [nzType]="'primary'" (click)="submit()">Se connecter</button>
+        </div>
+
+
+
+      </form>
+    </nz-space-item>
+    <!-- 
+    <nz-space-item>
+      <nz-divider nzText="ou"></nz-divider>
+      <nz-row nzJustify="center">
+        <nz-space nzDirection="horizontal" [nzSize]="10">
+          <nz-space-item>
+            <button nz-button nzType="primary" nzShape="circle" (click)="signInWithGoogle()"><i nz-icon
+                nzType="google"></i></button>
+          </nz-space-item>
+          <nz-space-item>
+            <button nz-button nzType="default" nzShape="circle" (click)="signInWithFB()"><i nz-icon
+                nzType="facebook"></i></button>
+          </nz-space-item>
+        </nz-space>
+
+
+      </nz-row>
+
+
+    </nz-space-item>
+    <nz-space-item>
+      <nz-divider nzText="Pas encore de compte ?"></nz-divider>
+      <nz-row nzJustify="center">
+        <a [routerLink]="['/']" routerLinkActive="router-link-active">Créer mon compte</a>
+      </nz-row>
+
+
+    </nz-space-item> -->
+  </nz-space>
+
+
+
+
+</section>

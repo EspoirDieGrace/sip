@@ -1,0 +1,83 @@
+.card-img {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.card-form {
+    width: 50%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;  
+    align-items: center;
+    padding: 70px ;
+}
+
+
+.img-responsive {
+    max-width: 700px;
+}
+
+
+.login-form {
+    width: 300px;
+  }
+
+  .login-form-margin {
+    margin-bottom: 16px;
+  }
+
+  .login-form-forgot {
+    float: right;
+  }
+
+  .login-form-button {
+    width: 100%;
+  }
+
+
+  @media screen and (max-width : 1650px) {
+  .img-responsive {
+    max-width: 500px;
+  }
+  }
+
+
+
+  @media screen and (max-width : 1400px) {
+    .img-responsive {
+      max-width: 350px;
+    }
+    }
+
+
+  @media screen and (max-width : 1200px) {
+    .img-responsive {
+      max-width: 250px;
+    }
+    }
+
+
+  @media screen and (max-width : 1200px) {
+    .img-responsive {
+     display: none;
+    }
+    .card-img {
+      display: none;
+    }
+    .card-form {
+      width: 100%;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;  
+      align-items: center;
+      padding: 70px ;
+  }
+  
+.login-form {
+  width: 250px;
+  min-width: 150px;
+}
+    }

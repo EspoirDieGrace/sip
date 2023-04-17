@@ -1,0 +1,68 @@
+
+
+<form nz-form [formGroup]="itemForm">
+ <nz-form-item *ngIf="enable">
+      <nz-form-label [nzSpan]="6" nzFor="typeprescripteurs" >Type prescripteur </nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzMd]="16"  nzErrorTip="Veuillez selectionner un Type prescripteur">
+        <nz-select 
+          id="typeprescripteur"
+          formControlName="typeprescripteur"
+          nzPlaceHolder="Selectionner un type prescripteur"
+          [nzLoading]="selectSetting.loading"
+          [compareWith]="compareTypeprescripteur">
+          <nz-option   *ngFor="let item1 of listetypeprescripteur"
+          [nzValue]="item1" [nzLabel]="item1.typeprescripteurlibelle"></nz-option>
+          <nz-option  nzValue="Default" nzHide></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- Form Item : Email de l'utilisateur -->
+    <nz-form-item>
+     <nz-form-label [nzSpan]="8" nzRequired nzFor="prescripteuremail">Email</nz-form-label>
+     <nz-form-control nzHasFeedback [nzMd]="14"  [nzSpan]="14" [nzErrorTip]="emailValidTmpl">
+       <input  type="text" nz-input placeholder="mail@xyz.com" formControlName="prescripteuremail" id="prescripteuremail" />
+       <ng-template #emailValidTmpl let-control>
+         <ng-container *ngIf="control.hasError('required')">
+           l'email est obligatoire !
+         </ng-container>
+         <ng-container *ngIf="control.hasError('email')">
+           Entrer un mail valide !
+         </ng-container>
+       </ng-template>
+     </nz-form-control>
+   </nz-form-item>
+ 
+    <!-- Form Item : Nom du prescripteur -->
+    <nz-form-item>
+     <nz-form-label [nzSpan]="8" nzRequired nzFor="prescripteurnom">Noms</nz-form-label>
+     <nz-form-control nzHasFeedback [nzMd]="14"  [nzSpan]="14" nzErrorTip="Le nom est obligatoire!">
+       <input  type="text" nz-input formControlName="prescripteurnom" id="prescripteurnom" />
+     </nz-form-control>
+   </nz-form-item>
+   
+  <!-- Form Item : preNom du prescripteur -->
+  <nz-form-item>
+    <nz-form-label [nzSpan]="8" nzRequired nzFor="prescripteurprenom">Prenom</nz-form-label>
+    <nz-form-control nzHasFeedback [nzMd]="14"  [nzSpan]="14" nzErrorTip="Le prenom est obligatoire!">
+      <input  type="text" nz-input formControlName="prescripteurprenom" id="prescripteurprenom" />
+    </nz-form-control>
+  </nz-form-item>
+ 
+ 
+    <!-- Form Item : Email de l'utilisateur -->
+    <nz-form-item>
+     <nz-form-label [nzSpan]="8" nzRequired nzFor="prescripteurcontact">Contact</nz-form-label>
+     <nz-form-control nzHasFeedback [nzMd]="14"  [nzSpan]="14" nzErrorTip="Le contact est obligatoire!">
+       <input  type="text" nz-input placeholder="22501223344" formControlName="prescripteurcontact" id="prescripteurcontact" />
+     </nz-form-control>
+   </nz-form-item>
+   
+ </form>
+ <div *nzModalFooter>
+    <button nz-button nzType="default" (click)="handleCancel()">annuler</button>
+    <button nz-button nzType="primary" 
+    [disabled]="itemForm.invalid" 
+    (click)="handleOk(true)"  
+    [nzLoading]="selectSetting.loading">{{ msgBtn }}</button>
+     
+ </div>

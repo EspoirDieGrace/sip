@@ -1,0 +1,93 @@
+
+<nz-page-header class="site-page-header" nzTitle="Tableau de bord" nzSubtitle="">
+</nz-page-header>
+
+<nz-row>
+    <nz-col [nzSpan]="11" >
+        <nz-row [nzGutter]="16">
+            <nz-col [nzSpan]="12">
+              <nz-card>
+                <nz-statistic
+                  [nzValue]="(20 | number: '1.0-2')!"
+                  [nzTitle]="'Nombre de marchands'"
+                  [nzPrefix]="prefixTplOne"
+                  [nzSuffix]="''"
+                  [nzValueStyle]="{ color: '#3F8600' }"
+                >
+                </nz-statistic>
+                <ng-template #prefixTplOne><i nz-icon nzType="arrow-up"></i></ng-template>
+              </nz-card>
+            </nz-col>
+            <nz-col [nzSpan]="12">
+              <nz-card>
+                <nz-statistic
+                  [nzValue]="(2000 | number: '1.0-2')!"
+                  [nzTitle]="'Nombre de client'"
+                  [nzPrefix]="prefixTplTwo"
+                  [nzSuffix]="''"
+                  [nzValueStyle]="{ color: '#CF1322' }"
+                >
+                </nz-statistic>
+                <ng-template #prefixTplTwo><i nz-icon nzType="arrow-down"></i></ng-template>
+              </nz-card>
+            </nz-col>
+          </nz-row>
+    </nz-col>
+    <nz-col [nzSpan]="12" [nzOffset]="1">
+      <nz-row [nzGutter]="16">
+          <nz-col [nzSpan]="12">
+            <nz-card>
+              <nz-statistic
+                [nzValue]="(10000 | number: '1.0-2')!"
+                [nzTitle]="'Nombre de transaction'"
+                [nzPrefix]="prefixTplOne"
+                [nzSuffix]="''"
+                [nzValueStyle]="{ color: '#3F8600' }"
+              >
+              </nz-statistic>
+              <ng-template #prefixTplOne><i nz-icon nzType="arrow-up"></i></ng-template>
+            </nz-card>
+          </nz-col>
+          <nz-col [nzSpan]="12">
+            <nz-card>
+              <nz-statistic
+                [nzValue]="(98.3 | number: '1.0-2')!"
+                [nzTitle]="'Pourcentage de reusssite'"
+                [nzPrefix]="prefixTplTwo"
+                [nzSuffix]="'%'"
+                [nzValueStyle]="{ color: '#CF1322' }"
+              >
+              </nz-statistic>
+              <ng-template #prefixTplTwo><i nz-icon nzType="arrow-down"></i></ng-template>
+            </nz-card>
+          </nz-col>
+        </nz-row>
+  </nz-col>
+</nz-row>
+
+<div style="margin-top: 18px;">
+<!-- 
+
+<h3>Commentaires</h3>
+<nz-row>
+  
+  <nz-col [nzSpan]="12">
+  <nz-list [nzDataSource]="comments" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
+    <ng-template #item let-item>
+      <nz-comment [nzAuthor]="item.author">
+        <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="item.avatar"></nz-avatar>
+        <nz-comment-content>
+          <p>{{ item.content }}</p>
+        </nz-comment-content>
+      </nz-comment>
+    </ng-template>
+  </nz-list>
+  </nz-col>
+</nz-row>
+
+ -->
+
+
+
+
+</div>

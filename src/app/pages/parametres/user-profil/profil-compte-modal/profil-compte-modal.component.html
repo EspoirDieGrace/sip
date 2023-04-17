@@ -1,0 +1,52 @@
+
+
+<form nz-form [formGroup]="itemForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired nzFor="villename">Montant</nz-form-label>
+      <nz-form-control nzHasFeedback [nzMd]="16"  [nzSpan]="14" nzErrorTip="Veuillez entrer un Montant">
+        <input  type="text" nz-input formControlName="villename" id="villename" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired nzFor="numero">Numero</nz-form-label>
+      <nz-form-control nzHasFeedback [nzMd]="16"  [nzSpan]="14" nzErrorTip="Veuillez entrer un Numero ">
+        <input  type="text" nz-input formControlName="numero" placeholder="225xxxxxxxx" id="numero" />
+      </nz-form-control>
+    </nz-form-item>
+ 
+   
+    <!-- Form Item  : Operateur -->
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="operateur" nzRequired>Operateur</nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzMd]="16"  nzErrorTip="Veuillez selectionner un operateur">
+        <nz-select
+          id="operateur"
+          formControlName="operateur"
+          nzPlaceHolder="Selectionner un operateur"
+          #select
+          (ngModelChange)="checkValidator($event)"         
+        >
+        <nz-option nzValue="ORANGE" nzLabel="Orange"></nz-option>
+        <nz-option nzValue="MTN" nzLabel="MTN"></nz-option>
+          
+        </nz-select>
+      </nz-form-control>
+    
+    </nz-form-item>
+
+    <nz-form-item *ngIf="select.value=='ORANGE'">
+      <nz-form-label [nzSpan]="6" nzRequired nzFor="otp">OTP</nz-form-label>
+      <nz-form-control [nzMd]="16"  [nzSpan]="14" nzErrorTip="Veuillez entrer un OTP ">
+        <input type="text" nz-input formControlName="otp" placeholder="225xxxxxxxx" id="otp" />
+        <small>Pour générer un code de sécurité, tapez le #144*82# 
+        </small>
+      </nz-form-control>
+    </nz-form-item>
+   
+ 
+   
+</form>
+<div *nzModalFooter>
+    <button nz-button nzType="default" (click)="handleCancel()">annuler</button>
+    <button nz-button nzType="primary" (click)="handleOk()" [disabled]="itemForm.invalid"  [nzLoading]="isConfirmLoading">valider</button>
+</div>

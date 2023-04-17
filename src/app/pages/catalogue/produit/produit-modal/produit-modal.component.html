@@ -1,0 +1,49 @@
+
+
+<form nz-form [formGroup]="itemForm" (ngSubmit)="submitForm()">
+    <!-- Form Item  -->
+   <nz-form-item>
+     <nz-form-label [nzSpan]="6" nzRequired nzFor="produitname">Libelle</nz-form-label>
+     <nz-form-control nzHasFeedback [nzMd]="16"  [nzSpan]="14" nzErrorTip="Le libelle du produit est requis!">
+       <input  type="text" nz-input formControlName="produitname" id="produitname" />
+     </nz-form-control>
+   </nz-form-item>
+
+
+     <!-- Form Item : prix  -->
+     <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired nzFor="produitprix">Prix</nz-form-label>
+      <nz-form-control nzHasFeedback [nzMd]="16"  [nzSpan]="14" nzErrorTip="Le prix du produit est requis!">
+        <input  type="text" nz-input formControlName="produitprix" id="produitprix" />
+      </nz-form-control>
+    </nz-form-item>
+
+   <!-- Form Item  -->
+   <nz-form-item>
+       <nz-form-label [nzSpan]="6" nzFor="service" nzRequired>Service</nz-form-label>
+       <nz-form-control [nzSpan]="14" [nzMd]="16"  nzErrorTip="Veuillez selectionner un service">
+         <nz-select
+           id="service"
+           formControlName="gservice"
+           nzPlaceHolder="Selectionner un service"
+           
+         >
+         <nz-option *ngFor="let item of listeService" [nzValue]="item.gserviceid" [nzLabel]="item.gservicename"></nz-option>
+     
+         </nz-select>
+       </nz-form-control>
+     </nz-form-item>
+
+     <!-- Form item -->
+   <nz-form-item>
+     <nz-form-label [nzSm]="6"  [nzMd]="6" [nzXs]="24" nzFor="produitdescription">Description</nz-form-label>
+     <nz-form-control [nzSm]="14" [nzMd]="16"  [nzXs]="24" nzErrorTip="Please input your produitdescription!">
+       <textarea rows="3 " nz-input formControlName="produitdescription"></textarea>
+     </nz-form-control>
+   </nz-form-item>
+  
+</form>
+<div *nzModalFooter>
+   <button nz-button nzType="default" (click)="handleCancel()">annuler</button>
+   <button nz-button nzType="primary" (click)="handleOk()"  [disabled]="itemForm.invalid"  [nzLoading]="isConfirmLoading">{{ msgBtn }}</button>
+</div>

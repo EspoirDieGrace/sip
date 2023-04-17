@@ -1,0 +1,21 @@
+
+
+<form nz-form [formGroup]="itemForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired nzFor="typetransactionlibelle">Libelle</nz-form-label>
+      <nz-form-control nzHasFeedback [nzMd]="16"  [nzSpan]="14" nzErrorTip="Le libelle du type de transaction est obligatoire">
+        <input  type="text" nz-input formControlName="typetransactionlibelle" id="typetransactionlibelle" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6"  [nzMd]="6" [nzXs]="24" nzFor="typetransactioncommentaire">Description</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzMd]="16"  [nzXs]="24" nzErrorTip="une description s'il vous plait!">
+        <textarea rows="3 " nz-input formControlName="typetransactioncommentaire"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+   
+</form>
+<div *nzModalFooter>
+    <button nz-button nzType="default" (click)="handleCancel()">annuler</button>
+    <button nz-button nzType="primary" (click)="handleOk()" [disabled]="itemForm.invalid"  [nzLoading]="isConfirmLoading">{{ msgBtn }}</button>
+</div>

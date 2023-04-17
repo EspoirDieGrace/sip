@@ -1,0 +1,133 @@
+{
+  "HOST_API": "http://localhost:3001/",
+  "API_ENDPOINTS": {
+    "comment ":"------------ OPERATIONS UTILISATEUR---------------",
+    "USER_ADD": "utilisateur/add",
+    "USER_UPD": "utilisateur/update",
+    "USER_DEL" : "utilisateur/delete",
+    "USER_GET" : "utilisateur/getall",
+    "USER_CONNECT" : "utilisateur/login",
+    "USER_PROFIL_GET" : "utilisateur/getprofil",
+    "USER_PROFIL_UPD" : "utilisateur/updateprofil",
+    "USER_PROFIL_UPD_PASS" : "utilisateur/updatepassword",
+    "USER_PROFIL_FORGOT_PASS" : "utilisateur/forgotpassword",
+    "USER_PROFIL_RESET_PASS" : "utilisateur/resetpassword",
+
+    "comment" : "------------ OPERATIONS prescripteur ------------------",
+    "PRESCRIPTEUR_ADD" : "prescripteur/add",
+    "PRESCRIPTEUR_UPD" : "prescripteur/update",
+    "PRESCRIPTEUR_DEL" : "prescripteur/delete",
+    "PRESCRIPTEUR_GET" : "prescripteur/getall",
+
+    "comment" : "------------ OPERATIONS TYEPPRESCRIPTEUR ------------------",
+    "TYPEPRESCRIPTEUR_ADD" : "typeprescripteur/add",
+    "TYPEPRESCRIPTEUR_UPD" : "typeprescripteur/update",
+    "TYPEPRESCRIPTEUR_DEL" : "typeprescripteur/delete",
+    "TYPEPRESCRIPTEUR_GET" : "typeprescripteur/getall",
+    "comment" : "------------ OPERATIONS ROLE ------------------",
+    "ROLE_ADD" :"role/add",
+    "ROLE_UPD" :"role/update",
+    "ROLE_DEL" :"role/delete",
+    "ROLE_GET" :"role/getall",
+    "comment" : "------------ OPERATIONS CATETABLISSEMENT ------------------",
+    "CATETABLISSEMENT_ADD" : "categorieetablissement/add",
+    "CATETABLISSEMENT_UPD" : "categorieetablissement/update",
+    "CATETABLISSEMENT_DEL" : "categorieetablissement/delete",
+    "CATETABLISSEMENT_GET" : "categorieetablissement/getall",
+
+    "comment" : "------------ OPERATIONS CATETABLISSEMENT ------------------",
+    "ETABLISSEMENT_ADD" : "etablissement/add",
+    "ETABLISSEMENT_UPD" : "etablissement/update",
+    "ETABLISSEMENT_DEL" : "etablissement/delete",
+    "ETABLISSEMENT_GET" : "etablissement/getall",
+
+
+
+
+
+    "comment" : "------------ OPERATIONS ACHAT ------------------",
+    "ACHAT_GET" : "achat/getall",
+
+
+
+
+
+
+    "comment" : "------------ OPERATIONS FACTURES ------------------",
+    "FACTURE_GET" : "facture/getall",
+    "FACTURE_UPD" : "facture/askbebit",
+
+
+
+
+    "comment" : "------------ OPERATIONS STOCKS ------------------",
+    "STOCKS_GET" : "stock/get",
+    "STOCKS_UPD" : "stock/update"
+
+
+
+
+
+  },
+
+  "role":{
+    "ROLE_ADMINISTRATEUR":11,
+    "ROLE_MANAGER": 12,
+    "ROLE_DELEGUE": 13
+  },
+
+  "rolei":[
+    {
+      "roleid": 11,
+      "rolenom": "Administrateur"
+    },
+    {
+      "roleid":12,
+      "rolenom": "Manager"
+    },
+    {
+      "roleid": 13,
+      "rolenom": "Délégué"
+    }
+  ],
+
+
+  "defaultPic":"assets/img/avatars/pic.png",
+
+  "commandestatus":[
+    {"key":"LIVRÉ"},
+    {"key":"PENDING"},
+    {"key":"ANNULÉ"}
+  ],
+
+
+  "limitSize":500000,
+
+  "imgVar":"/var/www/html/",
+  "imgHttp":"https://kyrmannpay.com/",
+
+  "gatewayData":{
+    "user":"gas-oil",
+    "pass":"$2a$12$nL89DLCCmZuRNcx2OXzcYOKVVR3CKwNJQHSdORfowji5yIXjLZiA.",
+    "id_cart":"",
+    "id_customer":"",
+    "url":"",
+    "total_cart":"",
+    "afid":"225",
+    "offreid":"22"
+  },
+  "GSKey":"LQ1ALSIBPZTC8GMP",
+
+  "homeDirectory" :"/page/dashboard",
+
+  "TOKEN": "development token",
+  "ErrorMessage":"Erreur lors de l'execution de la requête <br> Verifiez votre connexion réseau",
+  "500Message":"Erreur interne de l'application <br> Contacter l'administrateur de la plateforme",
+  "409Message":"Element Existant",
+  "403Message":"",
+  "400Message":"",
+  "204Message":"",
+  "201Message":"",
+  "200Message":"",
+  "default":"Verifier que vous etes bien connecté au reseau puis rafraichissez la page. <br> Si le probleme persiste , contacter votre administrateur"
+}

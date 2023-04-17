@@ -1,0 +1,18 @@
+
+
+<form nz-form [formGroup]="itemForm" (ngSubmit)="submitForm()">
+    <!-- Form Item  -->
+   <nz-form-item>
+     <nz-form-label [nzSpan]="6" nzRequired nzFor="typepdvlibelle">Libelle</nz-form-label>
+     <nz-form-control nzHasFeedback [nzMd]="16"  [nzSpan]="14" nzErrorTip="Le libelle du type de pdv est obligatoire">
+       <input  type="text" nz-input formControlName="typepdvlibelle" id="typepdvlibelle" />
+     </nz-form-control>
+   </nz-form-item>
+
+   
+  
+</form>
+<div *nzModalFooter>
+   <button nz-button nzType="default" (click)="handleCancel()">annuler</button>
+   <button nz-button nzType="primary" (click)="handleOk()"  [disabled]="itemForm.invalid"  [nzLoading]="isConfirmLoading">{{ msgBtn }}</button>
+</div>

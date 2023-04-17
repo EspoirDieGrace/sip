@@ -1,0 +1,99 @@
+<!-- <nz-page-header class="site-page-header" nzTitle="Profile" nzSubtitle="Informations relatives a votre compte">
+</nz-page-header> -->
+
+<nz-page-header class="site-page-header" >
+    <nz-page-header-title>Profile</nz-page-header-title>
+    <nz-page-header-subtitle>Informations relatives a votre compte utilisateur</nz-page-header-subtitle>
+    <nz-page-header-extra>
+      <!-- <button nz-button>Operation</button>
+      <button nz-button>Operation</button> -->
+      <button nz-button nzType="secondary" (click)="open()">Recharger mon compte </button>
+    </nz-page-header-extra>
+    <nz-page-header-content>
+      <div class="content">
+        <div class="main">
+          <nz-descriptions nzSize="small" [nzColumn]="2">
+            <nz-descriptions-item nzTitle="Noms" [nzSpan]="1">{{ connUser.utilisateurnom }}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Email" [nzSpan]="1"><a>{{ connUser.utilisateuremail }}</a></nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Créer le" [nzSpan]="1">{{ connUser.utilisateurdatecreation  | date:'short':'+0000':'fr' }}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Derniere Connexion" [nzSpan]="1">{{ connUser.utilisateurlastconnexion | date:'short':'+0000':'fr' }}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Type de compte" [nzSpan]="2" >
+              <span style="text-transform: capitalize;">  {{ connUser.typeutilisateur.typeutilisateurlibelle }}</span>
+             
+            </nz-descriptions-item>
+          </nz-descriptions>
+        </div>
+        <div class="extra">
+          <div>
+            <nz-statistic nzTitle="Statut" nzValue="Actif"></nz-statistic>
+            <nz-statistic nzTitle="Solde" [nzValue]="connUser.compte.comptesolde ? connUser.compte.comptesolde : 0" nzSuffix="Fcfa" style="margin: 0 50px"></nz-statistic>
+          </div>
+        </div>
+      </div>
+    </nz-page-header-content>
+    <nz-page-header-footer>
+      <nz-tabset [nzSelectedIndex]="1">
+        <nz-tab nzTitle="Informations du profile">
+            
+        </nz-tab>
+        <nz-tab nzTitle="Informations du compte" >
+          <ng-container [ngTemplateOutlet]="compte"></ng-container>
+        </nz-tab>
+      </nz-tabset>
+    </nz-page-header-footer>
+  </nz-page-header>
+
+
+
+  <ng-template #compte>
+
+    <nz-card [nzBordered]="false" nzTitle="Historique de mes rechargements">
+      <nz-table #basicTable nzSize="small"  [nzLoading]="tableSetting.loading" nzPageSize="15" [nzData]="dataSet">
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Statut</th>
+            <th>Montant (FCFA)</th>
+            <th>Date d'achat</th>
+            <th>Date de Creation</th>
+            <!-- <th>Action</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of basicTable.data">
+            <td>{{data.transactioncode}}</td>
+            <td>{{data.transactionstatus}}</td>
+            <td>{{data.transactionmontant}}</td>
+            <td>{{data.transactiondateachat  | date:'short':'+0000':'fr'}}</td>
+            <td>{{data.transactiondatecreation  | date:'short':'+0000':'fr'}}</td>
+            
+            <!-- <td>
+              <nz-space nzSize="small">
+                <nz-space-item>
+                  <button
+                   (click)="openModal('update',data)" nz-button nzType="link" ><i nz-icon nzType="edit"></i></button>
+                </nz-space-item>
+                <nz-space-item>
+                  <button nz-button nzType="link"
+                  nz-popconfirm
+                  nzCancelText="Non"
+                  nzOkText="Oui, je suis sûr"
+                   [nzPopconfirmTitle]="utilisService.getDeleteWarningmessage(data.villename)"
+                   (nzOnConfirm)="delete([data])"
+                   nzPopconfirmPlacement="topLeft" ><i nz-icon nzType="delete"></i></button>
+                </nz-space-item>
+              </nz-space>
+            </td> -->
+          </tr>
+        </tbody>
+      </nz-table>
+      
+    </nz-card>
+    
+  </ng-template>
+
+
+
+  <ng-template #profil>
+
+  </ng-template>

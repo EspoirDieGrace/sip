@@ -1,0 +1,23 @@
+<form nz-form [formGroup]="itemForm">
+    <!-- Form Item : Nom du prescripteur -->
+    <nz-form-item>
+     <nz-form-label [nzSpan]="6" nzRequired nzFor="catetablibelle">Libellé</nz-form-label>
+     <nz-form-control nzHasFeedback [nzMd]="14"  [nzSpan]="14" nzErrorTip="Le Libellé est obligatoire!">
+       <input  type="text" nz-input formControlName="catetablibelle" id="catetablibelle" />
+     </nz-form-control>
+   </nz-form-item>
+  <!-- Form Item : preNom du prescripteur -->
+  <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="catetabdescription">Description</nz-form-label>
+      <nz-form-control nzHasFeedback [nzMd]="14" [nzSpan]="14"  nzErrorTip="une description est obligatoire" >
+        <textarea type="text" nz-input formControlName="catetabdescription" id="catetabdescription"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+ </form>
+ <div *nzModalFooter>
+    <button nz-button nzType="default" (click)="handleCancel()">Annuler</button>
+    <button nz-button nzType="primary" 
+    [disabled]="itemForm.invalid" 
+    (click)="handleOk(true)"  
+    [nzLoading]="selectSetting.loading">{{ msgBtn }}</button>  
+ </div>

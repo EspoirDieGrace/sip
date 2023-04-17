@@ -1,0 +1,79 @@
+
+
+<form nz-form [formGroup]="itemForm">
+  <!-- Form Item : Email de l'utilisateur -->
+  <nz-form-item>
+   <nz-form-label [nzSpan]="8" nzRequired nzFor="utilisateuremail">Email</nz-form-label>
+   <nz-form-control nzHasFeedback [nzMd]="14"  [nzSpan]="14" [nzErrorTip]="emailValidTmpl">
+     <input  type="text" nz-input placeholder="mail@xyz.com" formControlName="utilisateuremail" id="utilisateuremail" />
+     <ng-template #emailValidTmpl let-control>
+       <ng-container *ngIf="control.hasError('required')">
+         l'email est obligatoire !
+       </ng-container>
+       <ng-container *ngIf="control.hasError('email')">
+         Entrer un mail valide !
+       </ng-container>
+     </ng-template>
+   </nz-form-control>
+ </nz-form-item>
+
+  <!-- Form Item : Nom de l'utilisateur -->
+  <nz-form-item>
+   <nz-form-label [nzSpan]="8" nzRequired nzFor="utilisateurnom">Noms</nz-form-label>
+   <nz-form-control nzHasFeedback [nzMd]="14"  [nzSpan]="14" nzErrorTip="Le libelle est obligatoire!">
+     <input  type="text" nz-input formControlName="utilisateurnom" id="utilisateurnom" />
+   </nz-form-control>
+ </nz-form-item>
+ 
+<!-- Form Item : Nom de l'utilisateur -->
+<nz-form-item>
+  <nz-form-label [nzSpan]="8" nzRequired nzFor="utilisateurprenom">Prenom</nz-form-label>
+  <nz-form-control nzHasFeedback [nzMd]="14"  [nzSpan]="14" nzErrorTip="Le prenom est obligatoire!">
+    <input  type="text" nz-input formControlName="utilisateurprenom" id="utilisateurprenom" />
+  </nz-form-control>
+</nz-form-item>
+
+<!-- Form Item : Nom de l'utilisateur -->
+<nz-form-item>
+<nz-form-label [nzSpan]="8" nzRequired nzFor="utilisateurdatenaissance">Date de naissance</nz-form-label>
+<nz-form-control nzHasFeedback [nzMd]="14"  [nzSpan]="14" nzErrorTip="Le prenom est obligatoire!">
+  <input  type="date" nz-input formControlName="utilisateurdatenaissance" id="utilisateurdatenaissance" />
+</nz-form-control>
+</nz-form-item>
+
+
+  <!-- Form Item : Password de l'utilisateur -->
+  <nz-form-item>
+   <nz-form-label [nzSpan]="8" nzRequired nzFor="utilisateurpassword">Mot de passe</nz-form-label>
+   <nz-form-control nzHasFeedback [nzMd]="14"  [nzSpan]="14" nzErrorTip="Le mot de passe est obligatoire et doit être superieur a 5 caracteres!">
+     <input  type="password" nz-input formControlName="utilisateurpassword" id="utilisateurpassword" />
+   </nz-form-control>
+ </nz-form-item>
+
+
+  <!-- Form Item : Confirme pzssword de l'utilisateur -->
+  <nz-form-item>
+   <nz-form-label [nzSpan]="8" nzRequired nzFor="utilisateurconfirmpassword">Confirmer le mot de passe</nz-form-label>
+   <nz-form-control nzHasFeedback [nzMd]="14"  [nzSpan]="14" nzWarningTip="Le mot de passe ne correspond pas" nzErrorTip="Le mot de passe est obligatoire!">
+     <input  type="password" nz-input formControlName="utilisateurconfirmpassword" id="utilisateurconfirmpassword" />
+   </nz-form-control>
+ </nz-form-item>
+
+
+  <!-- Form Item : Email de l'utilisateur -->
+  <nz-form-item>
+   <nz-form-label [nzSpan]="8" nzRequired nzFor="utilisateurcontact">Contact</nz-form-label>
+   <nz-form-control nzHasFeedback [nzMd]="14"  [nzSpan]="14" nzErrorTip="Le contact est obligatoire!">
+     <input  type="text" nz-input placeholder="22501223344" formControlName="utilisateurcontact" id="utilisateurcontact" />
+   </nz-form-control>
+ </nz-form-item>
+ 
+</form>
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="handleCancel()">annuler</button>
+  <button nz-button nzType="primary" 
+  [disabled]="itemForm.invalid" 
+  (click)="handleOk(true)"  
+  [nzLoading]="selectSetting.loading">{{ msgBtn }}</button>
+   
+</div>

@@ -1,0 +1,50 @@
+<nz-page-header class="site-page-header" nzTitle="Type points de ventes" nzSubtitle="parametrage des types de pdv">
+</nz-page-header>
+
+<nz-card [nzBordered]="false" [nzTitle]="titleTemplate">
+  <nz-table #basicTable nzSize="small"  [nzLoading]="tableSetting.loading" nzPageSize="15" [nzData]="dataSet">
+    <thead>
+      <tr>
+        <th>Libelle</th>
+        <th>Creation</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{data.typepdvlibelle}}</td>
+       
+        <td>{{data.typepdvdatecreation  | date:'short':'+0000':'fr'}}</td>
+        <td>
+          <nz-space nzSize="small">
+            <nz-space-item>
+              <button
+               (click)="openModal('update',data)" nz-button nzType="link" ><i nz-icon nzType="edit"></i></button>
+            </nz-space-item>
+            <nz-space-item>
+              <button nz-button nzType="link"
+              nz-popconfirm
+              nzCancelText="Non"
+              nzOkText="Oui, je suis sûr"
+               [nzPopconfirmTitle]="utilisService.getDeleteWarningmessage(data.typepdvlibelle)"
+               (nzOnConfirm)="delete([data])"
+               nzPopconfirmPlacement="topLeft" ><i nz-icon nzType="delete"></i></button>
+            </nz-space-item>
+          </nz-space>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  
+</nz-card>
+
+
+  <ng-template #titleTemplate>
+    <nz-button-group>
+        <button nz-button (click)="openModal('add')"><i nz-icon nzType="plus" nzTheme="outline"></i>ajouter</button>
+        <!-- <button nz-button  (click)="tableSetting.checkbox = !tableSetting.checkbox"><i nz-icon nzType="check" nzTheme="outline"></i>selectionner</button>
+        <button nz-button nzType="danger"><i nz-icon nzType="delete" nzTheme="outline"></i>supprimer</button> -->
+        
+      </nz-button-group>
+      
+  </ng-template>
